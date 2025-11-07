@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Alert } from "react-native";
 import { moderateScale } from "../../utils/scalingUtils";
 import { CurvedHeader } from "../../components/CurvedHeader/CurvedHeader";
-import api from "../../utils/api"; // axios instance
+import api from "../../utils/api";
 
 export const AddProductScreen = ({ navigation, route }) => {
-  const mode = route?.params?.mode || "add"; // "add" or "edit"
+  const mode = route?.params?.mode || "add";
   const editData = route?.params?.product || null;
 
   const [productName, setProductName] = useState("");
@@ -13,7 +13,6 @@ export const AddProductScreen = ({ navigation, route }) => {
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
 
-  // Pre-fill fields if editing
   useEffect(() => {
     if (mode === "edit" && editData) {
       setProductName(editData.name);
@@ -24,7 +23,6 @@ export const AddProductScreen = ({ navigation, route }) => {
   }, [mode, editData]);
 
   const handleSubmit = async () => {
-    // Validate inputs
     if (!productName.trim() || !category.trim() || !price || !stock) {
       Alert.alert("Error", "Please fill in all fields.");
       return;
@@ -40,16 +38,13 @@ export const AddProductScreen = ({ navigation, route }) => {
     try {
       if (mode === "add") {
         await api.post("/products", payload);
-        Alert.alert("Success", "Product added successfully!");
       } else {
         await api.put(`/products/${editData.id}`, payload);
-        Alert.alert("Success", "Product updated successfully!");
       }
 
       navigation.goBack();
     } catch (error) {
       console.log("API Error:", error.response?.data || error.message);
-      Alert.alert("Error", "Failed to save product. Check console for details.");
     }
   };
 
@@ -61,7 +56,6 @@ export const AddProductScreen = ({ navigation, route }) => {
       />
 
       <ScrollView contentContainerStyle={styles.container}>
-        {/* Product Name */}
         <Text style={styles.label}>Product Name</Text>
         <View style={styles.inputContainer}>
           <TextInput
@@ -73,7 +67,6 @@ export const AddProductScreen = ({ navigation, route }) => {
           />
         </View>
 
-        {/* Category */}
         <Text style={styles.label}>Category</Text>
         <View style={styles.inputContainer}>
           <TextInput
@@ -85,7 +78,6 @@ export const AddProductScreen = ({ navigation, route }) => {
           />
         </View>
 
-        {/* Price */}
         <Text style={styles.label}>Price</Text>
         <View style={styles.inputContainer}>
           <TextInput
@@ -98,7 +90,6 @@ export const AddProductScreen = ({ navigation, route }) => {
           />
         </View>
 
-        {/* Stock */}
         <Text style={styles.label}>Stock</Text>
         <View style={styles.inputContainer}>
           <TextInput
@@ -111,7 +102,6 @@ export const AddProductScreen = ({ navigation, route }) => {
           />
         </View>
 
-        {/* Submit Button */}
         <TouchableOpacity style={styles.submitBtn} onPress={handleSubmit}>
           <Text style={styles.submitText}>
             {mode === "add" ? "Add Product" : "Save Changes"}
@@ -123,8 +113,15 @@ export const AddProductScreen = ({ navigation, route }) => {
 };
 
 const styles = StyleSheet.create({
-  container: { padding: moderateScale(20) },
-  label: { fontSize: moderateScale(14), color: "#333", marginBottom: moderateScale(5), fontWeight: "600" },
+  container: { padding: moderateScale(20), backgroundColor: "#fff" },
+
+  label: {
+    fontSize: moderateScale(14),
+    color: "#222",
+    marginBottom: moderateScale(5),
+    fontWeight: "600",
+  },
+
   inputContainer: {
     backgroundColor: "#F5F5F5",
     borderRadius: moderateScale(10),
@@ -132,13 +129,24 @@ const styles = StyleSheet.create({
     paddingVertical: moderateScale(10),
     marginBottom: moderateScale(15),
   },
-  input: { fontSize: moderateScale(14), color: "#000" },
+
+  input: {
+    fontSize: moderateScale(14),
+    color: "#111",
+  },
+
   submitBtn: {
     backgroundColor: "#9C6FB8",
     paddingVertical: moderateScale(14),
     borderRadius: moderateScale(12),
     marginTop: moderateScale(20),
     alignItems: "center",
+    elevation: 3,
   },
-  submitText: { color: "#fff", fontSize: moderateScale(16), fontWeight: "700" },
+
+  submitText: {
+    color: "#fff",
+    fontSize: moderateScale(16),
+    fontWeight: "700",
+  },
 });

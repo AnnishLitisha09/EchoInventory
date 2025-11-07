@@ -210,7 +210,7 @@ export const ViewAllProductsScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: { padding: moderateScale(20), gap: moderateScale(10) },
+  container: { padding: moderateScale(20), gap: moderateScale(10), backgroundColor: "#fff" },
 
   topRow: {
     flexDirection: "row",
@@ -223,6 +223,7 @@ const styles = StyleSheet.create({
     padding: moderateScale(10),
     borderRadius: moderateScale(10),
     marginRight: moderateScale(8),
+    color: "#111",
   },
 
   optionBtn: {
@@ -270,37 +271,43 @@ const styles = StyleSheet.create({
 
   dropdownText: {
     fontSize: moderateScale(13),
-    color: "#333",
+    color: "#111",
   },
 
   statusText: {
     fontSize: moderateScale(12),
-    color: "#777",
+    color: "#333",
+    marginVertical: moderateScale(8),
   },
 
   loadingText: {
     textAlign: "center",
     marginTop: moderateScale(20),
     fontSize: moderateScale(14),
+    color: "#111",
   },
 
   noResult: {
     textAlign: "center",
     marginTop: moderateScale(30),
     fontSize: moderateScale(16),
-    color: "#999",
+    color: "#555",
   },
-    fabButton: {
-      position: "absolute",
-      bottom: moderateScale(30),
-      right: moderateScale(20),
-      width: moderateScale(55),
-      height: moderateScale(55),
-      borderRadius: moderateScale(30),
-      justifyContent: "center",
-      alignItems: "center",
-      elevation: 9,
-    },
-    fabText: { color: "#fff", fontSize: moderateScale(30) },
-  
+
+  fabButton: {
+    position: "absolute",
+    bottom: moderateScale(30),
+    right: moderateScale(20),
+    width: moderateScale(55),
+    height: moderateScale(55),
+    borderRadius: moderateScale(30),
+    justifyContent: "center",
+    alignItems: "center",
+    elevation: 9,
+  },
+
+  fabText: {
+    color: "#fff",
+    fontSize: moderateScale(30),
+  },
 });

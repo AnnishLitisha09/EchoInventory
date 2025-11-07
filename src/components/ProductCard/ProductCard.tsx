@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
+import { moderateScale } from "../../utils/scalingUtils";
 import { DeleteIcon } from "../../assets/icons/DeleteIcon";
 import { Editicon } from "../../assets/icons/editicon";
 
@@ -26,7 +27,7 @@ export const ProductCard = ({
 
       <Image
         source={{
-          uri: "https://i.pravatar.cc/150?img=47",
+          uri: "https://media.istockphoto.com/id/1439393584/vector/3d-document-list-with-question-mark-icon-paper-document-sheet-missing-with-speech-bubble.jpg?s=612x612&w=0&k=20&c=ieSNO3a3BfpKAfdveaOp9-RIHj7PxqHZINmxE6QdRLc=",
         }}
         style={styles.image}
       />
@@ -61,52 +62,54 @@ const styles = StyleSheet.create({
   card: {
     flexDirection: "row",
     backgroundColor: "#fff",
-    margin: 10,
-    padding: 10,
-    borderRadius: 12,
+    margin: moderateScale(10),
+    padding: moderateScale(10),
+    borderRadius: moderateScale(12),
     alignItems: "center",
     elevation: 3,
   },
   sideStrip: {
-    width: 6,
+    width: moderateScale(6),
     height: "100%",
     backgroundColor: "#B273D9",
-    marginRight: 10,
-    borderRadius: 6,
+    marginRight: moderateScale(10),
+    borderRadius: moderateScale(6),
   },
   image: {
-    height: 60,
-    width: 60,
-    borderRadius: 40,
+    height: moderateScale(60),
+    width: moderateScale(60),
+    borderRadius: moderateScale(30),
   },
   info: {
     flex: 1,
-    marginLeft: 12,
+    marginLeft: moderateScale(12),
   },
   title: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     fontWeight: "700",
+    color: "#111",
   },
   categoryBadge: {
     backgroundColor: "#B273D9",
-    paddingHorizontal: 8,
-    paddingVertical: 3,
-    borderRadius: 6,
-    marginTop: 4,
+    paddingHorizontal: moderateScale(8),
+    paddingVertical: moderateScale(3),
+    borderRadius: moderateScale(6),
+    marginTop: moderateScale(4),
     alignSelf: "flex-start",
   },
   categoryText: {
     color: "#fff",
-    fontSize: 12,
+    fontSize: moderateScale(12),
   },
   price: {
-    marginTop: 8,
+    marginTop: moderateScale(8),
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: moderateScale(16),
+    color: "#111",
   },
   stock: {
-    fontSize: 12,
-    color: "#666",
+    fontSize: moderateScale(12),
+    color: "#555",
   },
   actions: {
     flexDirection: "row",
@@ -114,8 +117,8 @@ const styles = StyleSheet.create({
   },
   iconBtn: {
     backgroundColor: "#B273D9",
-    borderRadius: 8,
-    padding: 8,
-    marginLeft: 6,
+    borderRadius: moderateScale(8),
+    padding: moderateScale(8),
+    marginLeft: moderateScale(6),
   },
 });

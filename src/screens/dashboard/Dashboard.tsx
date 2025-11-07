@@ -119,6 +119,7 @@ export const Dashboard = () => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#F5F3F7" },
+
   header: {
     width: "100%",
     height: moderateScale(150),
@@ -127,8 +128,10 @@ const styles = StyleSheet.create({
     paddingBottom: moderateScale(60),
     borderBottomLeftRadius: moderateScale(80),
     borderBottomRightRadius: moderateScale(80),
+    backgroundColor: "#9C6FB8", // primary color
   },
   greeting: { color: "#fff", fontSize: moderateScale(26), fontWeight: "bold" },
+
   overallInventoryBox: {
     alignSelf: "center",
     marginTop: moderateScale(-60),
@@ -138,10 +141,11 @@ const styles = StyleSheet.create({
     padding: moderateScale(18),
     elevation: 6,
   },
-  overallTitle: { fontSize: moderateScale(14), fontWeight: "700", marginBottom: moderateScale(10) },
+  overallTitle: { fontSize: moderateScale(14), fontWeight: "700", marginBottom: moderateScale(10), color: "#222" },
   statsRow: { flexDirection: "row", justifyContent: "space-between", marginBottom: moderateScale(6) },
-  statLabel: { fontSize: moderateScale(13), fontWeight: "600", color: "#333" },
-  statValue: { fontSize: moderateScale(14), fontWeight: "700" },
+  statLabel: { fontSize: moderateScale(13), fontWeight: "600", color: "#555" },
+  statValue: { fontSize: moderateScale(14), fontWeight: "700", color: "#111" },
+
   progressBarContainer: {
     height: moderateScale(6),
     backgroundColor: "#E8E8E8",
@@ -149,11 +153,13 @@ const styles = StyleSheet.create({
     marginTop: moderateScale(12),
     overflow: "hidden",
   },
-  progressBar: { height: "100%" },
+  progressBar: { height: "100%", backgroundColor: "#9C6FB8" },
+
   sectionWrapper: { marginTop: moderateScale(50), paddingHorizontal: moderateScale(20) },
   sectionHeader: { flexDirection: "row", justifyContent: "space-between", marginBottom: moderateScale(15) },
-  sectionTitle: { fontSize: moderateScale(18), fontWeight: "700" },
-  viewAll: { fontSize: moderateScale(14), fontWeight: "600" },
+  sectionTitle: { fontSize: moderateScale(18), fontWeight: "700", color: "#222" },
+  viewAll: { fontSize: moderateScale(14), fontWeight: "600", color: "#9C6FB8" },
+
   fabButton: {
     position: "absolute",
     bottom: moderateScale(30),
@@ -164,6 +170,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     elevation: 9,
+    backgroundColor: "#9C6FB8",
   },
-  fabText: { color: "#fff", fontSize: moderateScale(30) },
+  fabText: { color: "#fff", fontSize: moderateScale(30), fontWeight: "700" },
 });
